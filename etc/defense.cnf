@@ -1,0 +1,71 @@
+[LDM]
+name[fr]="Lanceur de missiles"
+ps=2000
+pb=20
+va=80
+km=2000
+kc=0
+kd=0
+
+[ALLE]
+name[fr]="Artillerie laser légère"
+ps=2000
+pb=25
+va=100
+km=1500
+kc=500
+kd=0
+
+[ALLO]
+name[fr]="Artillerie laser lourde"
+ps=8000
+pb=100
+va=250
+km=6000
+kc=2000
+kd=0
+
+[CG]
+name[fr]="Canon de Gauss"
+ps=35000
+pb=200
+va=1100
+km=20000
+kc=15000
+kd=2000
+
+[AAI]
+name[fr]="Artillerie à ions"
+ps=8000
+pb=500
+va=150
+km=2000
+kc=6000
+kd=0
+
+[LP]
+name[fr]="Lanceur de plasma"
+ps=100000
+pb=300
+va=3000
+km=50000
+kc=50000
+kd=30000
+
+[PB]
+name[fr]="Petit bouclier"
+ps=20000
+pb=2000
+va=1
+km=10000
+kc=10000
+kd=0
+
+[GB]
+name[fr]="Grand bouclier"
+ps=100000
+pb=10000
+va=1
+km=50000
+kc=50000
+kd=0

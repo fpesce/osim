@@ -1,0 +1,155 @@
+Command line interfaced ogame-conflict simulator.
+
+v1.5.7: - legal: - License project under Apache License v2.0.
+
+v1.5.6: - Bugfix-Prod: - Bad value of CDR corrected.
+
+v1.5.5: - Feature-Prod: - the genetic engine can now include the true pilled
+			  ressources (after destruction of some attacking ships
+			  and re-computation of capacity).
+	- Bugfix-Prod: - Display, in perl mode, the metal-metal lost from ships
+	                 etc. for each ressources.
+
+v1.5.4: - Bugfix-Dev: - minor bug in heap/genetic algo.
+	- Bugfix-Prod: - correct recycling stat output in -o p mode.
+	- Feature-Prod: - add a -w option to divide the scoring by the flight time / wave time.
+
+v1.5.3: - Bugfix-Dev: - Race condition due to a shared pointer in os_fleet_t ctx->fleet.
+        - Bugfix-Dev: - Fix format for long/long long.
+
+v1.5.2: - Bugfix-Prod: - Refactor threadpool to avoid deadlock.
+
+v1.5.1: - Bugfix-Prod: - Remove a bug introduced in 0.9.7, no-recycling was
+                         confused with recycling mode.
+	- Feature-Prod: - Now in perl output don't display not-rentable fleet.
+
+v1.5.0: - Feature-Prod: Adding SMP support.
+	- Bugfix-Prod: Fix Knuth fast rand to work on 64bit.
+	- Cosmetic-Dev: Improving indentation. ;)
+
+v1.0.0: - v0.9.9
+
+v0.9.9: - Bugfix-Prod: - deut_consumed was wrong in perl output.
+	- Feature-Prod: - Remove invested ressources if we are in no-invest mode.
+
+v0.9.8: - Feature-Prod: - Now no more architecture dependant, compile as well on x86_64 as 686.
+        - Bugfix-Prod: - Fix --with-apr behavior, now use --with-apr-config
+	- Bugfix-Prod: - Fix typo that was underestimating the memory. (MemFree instead of memfree).
+	- Feature-Dev: - Flush stdout/stderr.
+	- Feature-Dev: - use rand() instead of Knuth fast rand() on 64 bit arch, because it fails...
+	- Feature-Dev: - Set max individual to 1024.
+	- Feature-Dev: - improve genetic fitness by removing some float arithmetic.
+	- Bugfix-Dev: - Fix signed/unsigned bugs.
+
+v0.9.7: - Feature-Prod: - Add switches investment/loss/recycling.
+	- Feature-Prod: - Add output switches.
+
+v0.9.6: - Feature-Dev: - Fix autoconf/Makefiles to handle apr-config.
+	- Bugfix-Prod: - fix traq speed change.
+
+v0.9.5: - Feature-Prod: - Add 0.76 ogame features.
+
+v0.9.4: - Bugfix-Prod: - Fix Moon parsing when resources < 0.
+	- Feature-Prod: - Improve first fleet tries in guess mode to test only
+	  powerfull ships.
+	- Feature-Prod: Modify mutation function to help the decreasing of
+	  ships.
+
+v0.9.3: - Bugfix-Prod: - flight time in guess mode used incorrect technos
+	  values.
+
+v0.9.2: - Bugfix-Prod: - Remove recycling from script mode.
+
+v0.9.1: - Fixed time limit for genetic algorithm.
+	- Experimental: Fix flight time (theoricaly working, not praticaly).
+	- Add no missile and best defense mode.
+	- Bugfix: read meminfo on 2.4.x kernel.
+
+v0.9.0: - Script version featuring:
+	  - 3 selectable guess mode: no-buffer fleet, full fleet, 'script'.
+	  - Inactivity timeout for genetic algorithm, if no new best individual
+	    has been found for xx seconds, stop the generations.
+	  - Genetic algorithm best individual timestamped.
+	  - script mode does not allow: loss (at least for the 16 simulations
+	    it does), investment, missiles or buffer ships, it does stop by
+	    default at 30 seconds of genetic algorithm inactivity.
+	    It will display a short summary easier to parse for a perl script.
+	    Scoring is the number of ressources won.
+
+v0.8.6: - Bug apparently fixed.
+
+v0.8.5: - Try to cast unsigned long long operation because a bug appeared...
+
+v0.8.4: - Now use unsigned long long (64 bits) to store various informations
+	  that are overflowed in case of big simulation (> 200k ships).
+
+v0.8.3: - Now use Buffers and Cached from /proc/meminfo to look for free mem.
+
+v0.8.2: - Change memory usage according to what is available on the system.
+
+v0.8.1: - Bugfix in MIP generation, don't add MIP if there's 0 def.
+
+v0.8.0: - Add MIT and MIP calculation, so input has changed see -h to check.
+	- Change ratio between (editable in os_conf.h) ressources to 1.0 1.0 1.0.
+	- refactor no-buffer implementation (improve speed).
+	- Add shell scripts to make the user simplify its life :P
+
+v0.7.1: - If stdin is incorrect output, don't segfault...
+	- Add Porte de Saut & Base Lunaire to Batiments.
+	- Handle low def ennemy (take in account fleet capacity) & Refactor no-buffer.
+
+v0.7.0: - Add the -d stdin option. That read a spy report (limitation : this
+	  spy report must contain last line : "Probabilité de destruction de la
+	  flotte d'espionnage").
+	- Guess mode : generate a first individual with full - user fleet.
+	- Guess mode :  take deut consumption in account (as a deut loss).
+
+v0.6.1: - Spy report parsing. (not interfaced yet, but working regexp).
+
+v0.6.0: - Guess mode:
+	  Remove deathstar when in no-buffer mode.
+	  Take in account the existing fleet to guess the cheapest one.
+	  Increase number of simulation by fleed tried (from 4 to 16).
+	  Add ressource spent to get the guessed result.
+
+v0.5.0: - Bugfix in rapid fire, clo was resisting too much to the edlm.
+        - Simulation mode:
+	  Add Debris, losses statistics.
+	- Guess mode:
+	  Change fitness function, fix debris calculation.
+
+v0.4.3: - Huge optimization by defining my_rand instead of rand().
+	- Optimisation in mutation function.
+
+v0.4.2: - Improve performance of shootship.
+
+v0.4.1: - Improve performance of rapidfire.
+	- Tweak ratio of ressource (I'll make it configurable).
+
+v0.4.0: - Add no-buffer / remove weak ship from simulation into guess mode.
+	- genetic algorithm, select different mating partenair than those who
+	  already have been written on.
+	- add mutation mode that does not affect other ship.
+	- Bugfix in ship shoot.
+
+v0.3.1: - Change ratio metal/cristal/deut to something closer to the rate we
+	  usually harvest from inactives.
+	- Include number of round in the fitness (the lesser the better).
+	- Improve fleet reduction (less rand() call) if random choose too many
+	  ships.
+	- Change mutation, the removal of ship of a type implicate an addition
+	  of same price in a ship of different type.
+	  Mutation now is able to reset randomly rarely one fleet too.
+
+v0.3.0: - Add optimizations, featuring a new mode to guess the best
+	  attacker/defender in front of a specific fleet.
+
+v0.2.1: - Add optimizations, change compilation option to improve efficiency
+          on 686.
+	- Featuring best/worst case now.
+
+v0.2: - Basicly working, optimised, but no bench against speedsim have been
+        done yet.
+      - Featuring average case.
+
+v0.1: -  Non working proof of concept (optimizations that didn't work).

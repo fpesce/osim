@@ -1,0 +1,43 @@
+- Feature:
+  Faire plutot une serie de swicths genre : missilles oui/non
+  etc.. ? histoire de pouvoir avoir a peu pres ce qu'on veut comme settings
+
+- BUG:
+  ./src/osim -a "15,15,16,15,13,10,[3:432:9],0,0,0,0,0,0,0,0,0,0,0,0,211" -d "15,15,15,[3:432:9],0,0,0,0,0,0,0,0,2500,0,0,0,1500,0,1500,40,60000,30000,15000,2500,1500,1500,1,1,0"
+  Devrait faire perdre l'attaquant (chercher du coté de remove exploded ships qui randomize l'ordre des vaisseaux)
+
+- BUG:
+  En guess mode, la capacité est calculée sur la flotte initiale avant perte...
+  Donc la capacité est faussée en cas de perte.
+
+- Optimisation Genetic Algorithm :
+  Faire une hash qui permet de se souvenir des scores d'un individus données,
+  de taille variable et avec possibilité d'expiration (pour éviter d'être trop
+  gourmand en mémoire).
+  Améliorera la vitesse, mais aussi évitera d'avoir 2 résultats différent pour
+  un même individu.
+
+- prendre les ratio en ligne de  commande, et afficher le score de maniere a ce
+  quil soit equivalent a un score ina*def avec les ratios de la conf des
+  scripts
+
+- Bougeage en webapp: Parsing rapport espionnage->csv en javascript éventuellement pour alléger le server.
+
+- ce qui serait pas mal, c'est qu'il donne un resultat pour avoir une fin de
+  combat a cdr = pertes
+  ça donne la flotte mini pour etre rentable
+
+- Output mode human / machine
+  Evenutellement sortir la flotte en une ligne csv pour etre re-cut pastée dans la foulée.
+
+- Add own recycling stats to the fitness. <- BAD IDEA NOT TO DO
+
+Missing report:
+- Ramassage ressource / 2.
+- Pondération des ressources.
+- Création de lune	 La probabilité de création de lune est de 14 %.
+  Butin théorique	 0 Métal, 0 Cristal, 0 Deutérium ~ 0 grand(s) transporteur(s)
+  Butin effectif	 0 Métal, 0 Cristal, 0 Deutérium ~ 0 % de rendement
+  Pertes attaquant(s) (pondérées)	 Min. 375.000; Max. 2.625.000
+  Pertes défenseur(s) (pondérées)	 Min. 4.207.500; Max. 4.207.500
+  Champ de débris (non pondéré)	 Min. 1.207.800 ~ 61 recycleur(s); Max. 1.801.800 ~ 91 recycleur(s)
